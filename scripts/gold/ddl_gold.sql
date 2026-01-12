@@ -17,6 +17,9 @@ Usage:
 -- =============================================================================
 -- Create Dimension: gold.dim_customers
 -- =============================================================================
+IF OBJECT_ID('gold.dim_customers', 'V') IS NOT NULL
+    DROP VIEW gold.dim_customers;
+GO
 
 CREATE VIEW gold.dim_customers AS
 SELECT
@@ -43,6 +46,9 @@ GO
 -- =============================================================================
 -- Create Dimension: gold.dim_products
 -- =============================================================================
+IF OBJECT_ID('gold.dim_products', 'V') IS NOT NULL
+    DROP VIEW gold.dim_products;
+GO
 
 CREATE VIEW gold.dim_products AS
 SELECT
@@ -66,6 +72,10 @@ GO
 -- =============================================================================
 -- Create Fact Table: gold.fact_sales
 -- =============================================================================
+IF OBJECT_ID('gold.fact_sales', 'V') IS NOT NULL
+    DROP VIEW gold.fact_sales;
+GO
+    
 CREATE VIEW gold.fact_sales AS
 SELECT
     sd.sls_ord_num AS order_number,
